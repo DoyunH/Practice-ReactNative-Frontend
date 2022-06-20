@@ -9,59 +9,28 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
+import styled from '@emotion/native';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Text>안녕하세요</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Container>
+      <Description>ReactNative Frontend Template</Description>
+    </Container>
   );
 };
 
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
+const Container = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  border: 5px solid hotpink;
+`;
+
+const Description = styled.Text({
+  color: 'hotpink',
+  fontSize: 45,
+  fontWeight: 'bold',
+});
 
 export default App;
