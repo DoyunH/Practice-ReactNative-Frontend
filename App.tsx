@@ -9,28 +9,20 @@
  */
 
 import React from 'react';
-import styled from '@emotion/native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import CategoriesScreen from './screens/CateforiesScreen';
 
 const App = () => {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <Container>
-      <Description>ReactNative Frontend Template</Description>
-    </Container>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Projects" component={CategoriesScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const Container = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px;
-  border: 5px solid hotpink;
-`;
-
-const Description = styled.Text({
-  color: 'hotpink',
-  fontSize: 45,
-  fontWeight: 'bold',
-});
 
 export default App;

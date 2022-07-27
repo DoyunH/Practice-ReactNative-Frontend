@@ -3,9 +3,9 @@ import React from 'react';
 import {CATEGORIES} from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 
-const CategoriesScreen = ({navigation}) => {
-  const renderCategoryItem = itemData => {
-    const pressHandler = title => {
+const CategoriesScreen = ({navigation}: any) => {
+  const renderCategoryItem = (itemData: any) => {
+    const pressHandler = (title: string) => {
       navigation.navigate(title);
     };
 
