@@ -12,7 +12,6 @@ const CategoryGridTile = ({
   color,
   onPress,
 }: CategoryGridTilePropsType) => {
-  console.log(title);
   return (
     <View style={styles.gridItem}>
       <Pressable
