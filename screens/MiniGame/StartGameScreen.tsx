@@ -1,12 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const JWplayer = (): any => {
+const StartGameScreen = (): any => {
   return (
     <View>
-      <Text>JWplayer</Text>
+      <Text>StartGameScreen</Text>
     </View>
   );
 };
 
-export default JWplayer;
+export default StartGameScreen;
