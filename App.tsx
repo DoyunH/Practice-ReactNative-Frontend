@@ -12,7 +12,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CategoriesScreen from './screens/CateforiesScreen';
-import JWPlayer from './screens/JWPlayer';
+import Styling from './screens/Styling';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -21,7 +21,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Projects" component={CategoriesScreen} />
-        <Stack.Screen name="JWPlayer" component={JWPlayer} />
+        <Stack.Screen name="Styling" component={Styling} />
       </Stack.Navigator>
     </NavigationContainer>
   );
