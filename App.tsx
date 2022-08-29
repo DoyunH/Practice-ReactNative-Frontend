@@ -12,7 +12,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CategoriesScreen from './screens/CateforiesScreen';
-import Styling from './screens/Styling';
+import StartGameScreen from './screens/MiniGame/StartGameScreen';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -21,7 +21,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Projects" component={CategoriesScreen} />
-        <Stack.Screen name="Styling" component={Styling} />
+        <Stack.Screen name="Mini-Game" component={StartGameScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

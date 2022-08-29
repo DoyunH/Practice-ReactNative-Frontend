@@ -1,12 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const Styling = (): any => {
+const StartGameScreen = (): any => {
   return (
     <View>
-      <Text>Styling</Text>
+      <Text>StartGameScreen</Text>
     </View>
   );
 };
 
-export default Styling;
+export default StartGameScreen;
