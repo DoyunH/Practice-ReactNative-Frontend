@@ -1,8 +1,34 @@
-import {View, TextInput, StyleSheet, Platform} from 'react-native';
-import React from 'react';
+import {View, TextInput, StyleSheet, Platform, Alert} from 'react-native';
+import React, {useState} from 'react';
 import PrimaryButton from '../../components/PrimaryButton';
 
 const StartGameScreen = (): any => {
+  const [enteredValue, setEnteredValue] = useState('');
+
+  const numberInputHandler = (inputText: string): void => {
+    // -1 추출 불가능으로 보류
+    // setEnteredValue(inputText.replace(/[^0-9]/g, ''));
+    setEnteredValue(inputText);
+  };
+  const resetEnteredValue = (): void => {
+    setEnteredValue('');
+  };
+  const confirmInputHandler = (): void => {
+    const chosenNumber = parseInt(enteredValue, 10);
+    console.log(chosenNumber);
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      Alert.alert('Invalid number!', 'Number has to be between 1 and 99.', [
+        {
+          text: 'Okay',
+          // 서로 다른 스타일이 어떤 차이를 보이는지 : 'cancel', 'default', 'destructive'
+          style: 'destructive',
+          onPress: resetEnteredValue,
+        },
+      ]);
+      return;
+    }
+  };
+
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -11,13 +37,15 @@ const StartGameScreen = (): any => {
         keyboardType="number-pad"
         autoCapitalize="none"
         autoCorrect={false}
+        onChangeText={numberInputHandler}
+        value={enteredValue}
       />
       <View style={styles.buttonContainer}>
         <View style={styles.buttonWrapper}>
-          <PrimaryButton>Reset</PrimaryButton>
+          <PrimaryButton onPress={resetEnteredValue}>Reset</PrimaryButton>
         </View>
         <View style={styles.buttonWrapper}>
-          <PrimaryButton>Confirm</PrimaryButton>
+          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
         </View>
       </View>
     </View>
@@ -57,7 +85,9 @@ const styles = StyleSheet.create({
     marginTop: 7,
     marginBottom: 10,
     textAlign: 'center',
-    width: 50,
+    width: 80,
+    fontSize: 30,
+    fontWeight: 'bold',
     ...Platform.select({
       ios: {
         paddingVertical: 13,

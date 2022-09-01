@@ -3,16 +3,14 @@ import React from 'react';
 
 type PrimaryButtonProps = {
   children: string;
+  onPress?: () => void;
 };
 
-const PrimaryButton = ({children}: PrimaryButtonProps) => {
-  const pressHandler = () => {
-    console.log('Pressed!');
-  };
+const PrimaryButton = ({children, onPress}: PrimaryButtonProps) => {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable
-        onPress={pressHandler}
+        onPress={onPress}
         android_ripple={{color: '#213469'}}
         style={({pressed}) => {
           return pressed && Platform.OS === 'ios'
