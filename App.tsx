@@ -11,7 +11,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import CategoriesScreen from './screens/CateforiesScreen';
+import CategoriesScreen from './screens/CategoriesScreen';
 import GameMain from './screens/MiniGame/GameMain';
 
 const App = () => {

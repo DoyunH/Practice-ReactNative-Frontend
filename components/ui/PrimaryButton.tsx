@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Pressable, Platform} from 'react-native';
 import React from 'react';
-import Color from '../constants/Color';
+import Color from '../../constants/Color';
 
 type PrimaryButtonProps = {
   children: string;

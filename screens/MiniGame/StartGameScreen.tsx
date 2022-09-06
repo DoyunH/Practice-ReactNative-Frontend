@@ -1,6 +1,6 @@
 import {View, TextInput, StyleSheet, Platform, Alert} from 'react-native';
 import React, {useState} from 'react';
-import PrimaryButton from '../../components/PrimaryButton';
+import PrimaryButton from '../../components/ui/PrimaryButton';
 
 type StartGameScreenProps = {
   onPickNumber: (selectedNumber: number) => void;

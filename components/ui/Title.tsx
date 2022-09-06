@@ -1,6 +1,6 @@
 import {StyleSheet, Text} from 'react-native';
 import React from 'react';
-import Color from '../constants/Color';
+import Color from '../../constants/Color';
 
 type TitlePropsWithChildren = {
   children: string;
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: Color.BlueButton,
     color: Color.BlueButton,
+    backgroundColor: 'white',
     padding: 12,
     fontWeight: 'bold',
   },
