@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Title from '../../components/ui/Title';
 import Color from '../../constants/Color';
+import PrimaryButton from '../../components/ui/PrimaryButton';
 
 type GameScreenProps = {
   userChoice: number;
@@ -26,9 +27,15 @@ const GameScreen = ({userChoice}: GameScreenProps) => {
         <Text style={styles.selectedNumber}>
           {generateRandomBetween(1, 100, userChoice)}
         </Text>
-      </View>
-      <View>
         <Text>Higher or Lower?</Text>
+        <View style={styles.buttonContainer}>
+          <View style={styles.buttonMarginControler}>
+            <PrimaryButton>+</PrimaryButton>
+          </View>
+          <View style={styles.buttonMarginControler}>
+            <PrimaryButton>-</PrimaryButton>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -53,5 +60,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+  },
+  buttonMarginControler: {
+    marginHorizontal: 10,
   },
 });
