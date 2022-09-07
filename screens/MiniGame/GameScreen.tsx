@@ -8,7 +8,13 @@ type GameScreenProps = {
   userChoice: number;
 };
 
-const generateRandomBetween = (min: number, max: number, exclude: number) => {
+type GenerateRandomBetween = (
+  min: number,
+  max: number,
+  exclude: number,
+) => number;
+
+const generateRandomBetween: GenerateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -30,10 +36,10 @@ const GameScreen = ({userChoice}: GameScreenProps) => {
         <Text>Higher or Lower?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.buttonMarginControler}>
-            <PrimaryButton>+</PrimaryButton>
+            <PrimaryButton onPress={nextGuessHandler}>+</PrimaryButton>
           </View>
           <View style={styles.buttonMarginControler}>
-            <PrimaryButton>-</PrimaryButton>
+            <PrimaryButton onPress={nextGuessHandler}>-</PrimaryButton>
           </View>
         </View>
       </View>
