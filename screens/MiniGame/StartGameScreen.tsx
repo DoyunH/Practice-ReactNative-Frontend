@@ -1,6 +1,7 @@
 import {View, TextInput, StyleSheet, Platform, Alert} from 'react-native';
 import React, {useState} from 'react';
 import PrimaryButton from '../../components/ui/PrimaryButton';
+import Card from '../../components/ui/Card';
 
 type StartGameScreenProps = {
   onPickNumber: (selectedNumber: number) => void;
@@ -35,24 +36,26 @@ const StartGameScreen = ({onPickNumber}: StartGameScreenProps): any => {
   };
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.numberInput}
-        maxLength={2}
-        keyboardType="number-pad"
-        autoCapitalize="none"
-        autoCorrect={false}
-        onChangeText={numberInputHandler}
-        value={enteredValue}
-      />
-      <View style={styles.buttonContainer}>
-        <View style={styles.buttonWrapper}>
-          <PrimaryButton onPress={resetEnteredValue}>Reset</PrimaryButton>
+    <View>
+      <Card>
+        <TextInput
+          style={styles.numberInput}
+          maxLength={2}
+          keyboardType="number-pad"
+          autoCapitalize="none"
+          autoCorrect={false}
+          onChangeText={numberInputHandler}
+          value={enteredValue}
+        />
+        <View style={styles.buttonContainer}>
+          <View style={styles.buttonWrapper}>
+            <PrimaryButton onPress={resetEnteredValue}>Reset</PrimaryButton>
+          </View>
+          <View style={styles.buttonWrapper}>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+          </View>
         </View>
-        <View style={styles.buttonWrapper}>
-          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
-        </View>
-      </View>
+      </Card>
     </View>
   );
 };
@@ -60,30 +63,6 @@ const StartGameScreen = ({onPickNumber}: StartGameScreenProps): any => {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    alignItems: 'center',
-    marginHorizontal: 30,
-    marginVertical: 70,
-    borderColor: 'gray',
-    borderWidth: 0.7,
-    borderRadius: 8,
-    backgroundColor: 'white',
-    padding: 20,
-    ...Platform.select({
-      android: {
-        elevation: 8,
-      },
-      ios: {
-        shadowColor: 'rgb(50, 50, 50)',
-        shadowOpacity: 0.5,
-        shadowRadius: 5,
-        shadowOffset: {
-          height: 0.5,
-          width: 0.5,
-        },
-      },
-    }),
-  },
   numberInput: {
     borderBottomColor: '#c4c4c4',
     borderBottomWidth: 1,

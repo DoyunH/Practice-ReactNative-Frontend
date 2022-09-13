@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import Title from '../../components/ui/Title';
 import Color from '../../constants/Color';
 import PrimaryButton from '../../components/ui/PrimaryButton';
+import Card from '../../components/ui/Card';
 
 type GameScreenProps = {
   userChoice: number;
@@ -67,7 +68,7 @@ const GameScreen = ({userChoice, onGameOver}: GameScreenProps) => {
   return (
     <View style={styles.gameScreen}>
       <Title>Opponent's Guess</Title>
-      <View style={styles.numberContainer}>
+      <Card>
         <Text style={styles.selectedNumber}>{currentGuess}</Text>
         <Text>Higher or Lower?</Text>
         <View style={styles.buttonContainer}>
@@ -82,7 +83,7 @@ const GameScreen = ({userChoice, onGameOver}: GameScreenProps) => {
             </PrimaryButton>
           </View>
         </View>
-      </View>
+      </Card>
     </View>
   );
 };
